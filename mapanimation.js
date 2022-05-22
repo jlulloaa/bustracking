@@ -48,14 +48,15 @@ function center() {
   // mapbox uses LONGITUDE, LATITUDE, so will need to reverse the input
   // (reverse works inplace)
   mapCentre.reverse();
-  mapCentre = mapCentre.map(Number);
-  if (checkNaN(mapCentre) & mapCentre.length==2){
+  mapC0 = mapCentre.map(Number);
+  if (checkNaN(mapC0) & mapC0.length==2){
     console.log(mapCentre);
     // Stop any ongoing fetching process
     clearTimeout(timer);
     // Recentre map
-    recentreMap(map, mapCentre);
+    recentreMap(map, mapC0);
   }
+
 }
 
 // Get traffic information by fetching whatever API decide to use, based on the location of the map:
@@ -104,10 +105,10 @@ function shape_request(baseUrl, searchCoord, token) {
 // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 // Initial constants and variables
 // Santiago [Latitude, Longiitude]:
-const mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
+var mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
 descripC0 = {title: '', description: 'Reference Point'}
 // Concepcion [Latitude, Longiitude]:
-// const mapC0 = [-36.816392332966494, -73.05296554039516].reverse();
+// var mapC0 = [-36.816392332966494, -73.05296554039516].reverse();
 // descripC0 = {title: 'Centre Point', description: 'Concepcion, Chile'}
 
 // Search radius (in meters)
@@ -143,7 +144,10 @@ run(transitlandAPI);
 
 // counter here represents the index of the current bus stop
 // let counter = 0;
-// function move() {
+function move() {
+  map.flyTo({center: mapC0});
+}
+
 //   // TODO: move the marker on the map every 1000ms. Use the function marker.setLngLat() to update the marker coordinates
 //   // Use counter to access bus stops in the array busStops
 //   // Make sure you call move() after you increment the counter.
