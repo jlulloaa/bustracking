@@ -1,28 +1,57 @@
-body {
-  margin: 0;
-  padding: 0;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 5px;
+  padding: 10px;
+  /* background-image: url('../img/156402.jpg'); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+}
+/* Trick to enable transparency in the background image only. See details in https://coder-coder.com/background-image-opacity/ */
+/* .main { 
+  position: relative; 
+} */
+  .main::before {  
+      content: "";
+      background-image: url('../img/156402.jpg');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.15;
+  }
+
+
 h1 {
+  position: relative;
   text-align: center;
 }
 #map {
   position: relative;
+  padding: 10px;
   /* top: 0; */
   /* bottom: 0; */
-  left: 25%;
-  width: 50%;
+  /* left: 25%; */
+  /* width: 50%; */
 }
 
 .map-overlay {
-  position: absolute;
-  left: 25%;
-  width: 50%;
+  position: relative;
+  text-align: right;
+  /* left: 25%; */
+  /* width: 50%; */
   /* left: 0; */
   /* padding: 10px; */
 }
 
 footer{
+  position: relative;
   text-align: center;
+  top: 50%;
 }
 
 .mainMarker {
@@ -32,4 +61,28 @@ footer{
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+/* unvisited link */
+a:link {
+  /* color: rgb(0, 255, 225); */
+  text-decoration-line: none;
+}
+
+/* visited link */
+a:visited {
+  text-decoration-line: none;
+  /* color: green; */
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration-line: none;
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  text-decoration-line: none;
+  color: blue;
 }

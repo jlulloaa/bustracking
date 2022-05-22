@@ -34,6 +34,7 @@ function recentreMap(mapObj, centreCoord) {
   mapObj.flyTo({center: centreCoord});
   // update initial Marker
   updateMarker(initMrkr, centreCoord);
+  initMrkr.togglePopup(true);
   // Update the query
   transitlandAPI = shape_request('https://transit.land/api/v2/rest/stops', {lon: centreCoord[0], lat: centreCoord[1], rad:radius}, transitlan.accessToken);
   run(transitlandAPI);
@@ -42,7 +43,8 @@ function recentreMap(mapObj, centreCoord) {
 // Get the coordinates from the text box to recentre the map
 function center() {
   // Get coordinates from text box
-  let textCoord = document.getElementById("centrecoord").value;
+  let textCoord = document.getElementById("centrecord").value;
+
   // coordinates must be in the form LATITUDE, LONGITUDE (google maps convention)
   mapCentre = textCoord.split(',');
   // mapbox uses LONGITUDE, LATITUDE, so will need to reverse the input
@@ -106,7 +108,7 @@ function shape_request(baseUrl, searchCoord, token) {
 // Initial constants and variables
 // Santiago [Latitude, Longiitude]:
 var mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
-descripC0 = {title: '', description: 'Reference Point'}
+descripC0 = {title: 'Reference Point', description: 'Click over the map to change it'}
 // Concepcion [Latitude, Longiitude]:
 // var mapC0 = [-36.816392332966494, -73.05296554039516].reverse();
 // descripC0 = {title: 'Centre Point', description: 'Concepcion, Chile'}
@@ -148,13 +150,15 @@ function move() {
   map.flyTo({center: mapC0});
 }
 
-//   // TODO: move the marker on the map every 1000ms. Use the function marker.setLngLat() to update the marker coordinates
-//   // Use counter to access bus stops in the array busStops
-//   // Make sure you call move() after you increment the counter.
-//   setTimeout(() => {
-//     counter += 1;
-//     marker.setLngLat(busStops[counter]); // replace this to comeback after reaching the last element %busStops.length]);
-//     console.log(counter%busStops.length);
-//     move()
-//   }, 1000);
-// }
+map.on('click', (e) => {
+  // document.getElementById("centrecord").innerHTML = e.lngLat.lat + ',' + e.lngLat.log;
+  let textCoord = document.querySelector("#centrecord");
+  textCoord.setAttribute("value", e.lngLat.lat + ',' + e.lngLat.lng);
+  updateMarker(initMrkr, e.lngLat.wrap());
+  initMrkr.setPopup(
+    new mapboxgl.Popup({ offset: 5 }) // add popups
+    .setText("Click CENTRE MAP to update")
+    )
+  initMrkr.togglePopup(true);
+
+});
