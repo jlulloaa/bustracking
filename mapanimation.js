@@ -1,61 +1,156 @@
-// This array contains the coordinates for all bus stops between MIT and Harvard
-// const busStops = [
-//   [-71.093729, 42.359244],
-//   [-71.094915, 42.360175],
-//   [-71.0958, 42.360698],
-//   [-71.099558, 42.362953],
-//   [-71.103476, 42.365248],
-//   [-71.106067, 42.366806],
-//   [-71.108717, 42.368355],
-//   [-71.110799, 42.369192],
-//   [-71.113095, 42.370218],
-//   [-71.115476, 42.372085],
-//   [-71.117585, 42.373016],
-//   [-71.118625, 42.374863],
-// ];
+// Auxiliar functions
+// Check whether all elements in an array are not NaN
+function checkNaN(arr) {
+  return arr.every(element => ~Number.isNaN(element));
+}
 
-const busStops = [
-  [-73.0747368280013,-36.8240270695445],
-  [-73.0973186129397,-36.837934600527],
-  [-73.1182072613217,-36.836834777831],
-  [-73.1309136285728,-36.8456338998921],
-  [-73.1330656327354,-36.85417249505],
-  [-73.135810757869,-36.8669485992639],
-  [-73.1396772209682,-36.8825367862886],
-  [-73.1570705353778,-36.9544146400071]
-]
+// Create a marker in the map object mapObj, with coordinates mrkrCoord. Returns the marker object
+function addMarker(mapObj, mrkrCoord, popuptext) {
+  if (arguments.length < 3) {
+    popuptext = {title: 'Marker',
+                 description: mrkrCoord};
+  }
+  let marker = new mapboxgl.Marker()
+    .setLngLat(mrkrCoord)
+    .setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(
+        `<h3>${popuptext.title}</h3><p>${popuptext.description}</p>`
+        )
+      )
+    .addTo(mapObj)
 
-// TODO: add your own access token
+  return marker;
+}
+
+// Update a marker
+function updateMarker(marker, mrkrCoord) {
+  marker.setLngLat(mrkrCoord);
+}
+
+// Re-centre the map object mapObj in the coordinates centreCoord:
+function recentreMap(mapObj, centreCoord) {
+  // Move to the new centre
+  mapObj.flyTo({center: centreCoord});
+  // update initial Marker
+  updateMarker(initMrkr, centreCoord);
+  // Update the query
+  transitlandAPI = shape_request('https://transit.land/api/v2/rest/stops', {lon: centreCoord[0], lat: centreCoord[1], rad:radius}, transitlan.accessToken);
+  run(transitlandAPI);
+}
+
+// Get the coordinates from the text box to recentre the map
+function center() {
+  // Get coordinates from text box
+  let textCoord = document.getElementById("centrecoord").value;
+  // coordinates must be in the form LATITUDE, LONGITUDE (google maps convention)
+  mapCentre = textCoord.split(',');
+  // mapbox uses LONGITUDE, LATITUDE, so will need to reverse the input
+  // (reverse works inplace)
+  mapCentre.reverse();
+  mapCentre = mapCentre.map(Number);
+  if (checkNaN(mapCentre) & mapCentre.length==2){
+    console.log(mapCentre);
+    // Stop any ongoing fetching process
+    clearTimeout(timer);
+    // Recentre map
+    recentreMap(map, mapCentre);
+  }
+}
+
+// Get traffic information by fetching whatever API decide to use, based on the location of the map:
+async function getTrafficInfo(urlToken) {
+  const url = urlToken; // 'http://api-v3.mbta.com/vehicles?filter[route]=1&include=trip';
+  const response = await fetch(url);
+  const json = await response.json();
+  return json.stops;
+}
+
+// Shedule fetching data periodically and displaying it in the map
+async function run(url) {
+  const stops = await getTrafficInfo(url);
+  console.log(stops);
+  if (stops.length > 0) {
+    stops.forEach((element, idx) => {
+      popuptext = {title: 'Stop Name',
+                  description: element.stop_name};
+      let mrki = addMarker(map, element.geometry.coordinates, popuptext);
+      if (idx == (stops.length-1)) {
+        map.flyTo({center: element.geometry.coordinates});
+      }
+      setTimeout(() => {
+        // Modifies the colour of the marker randomly:
+        let hueRotLevel = Math.random() * 360;
+        el_mrki = mrki.getElement();
+        el_mrki.style.filter = 'hue-rotate('+hueRotLevel + 'deg)';
+        
+      }, idx*200);
+      });
+    timer = setTimeout(run, 60000);
+  } else {
+    initMrkr.setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setText("Could not find any bus stop near this place, please try another set of coordinates")
+      )
+    initMrkr.togglePopup(true);
+  }
+}
+
+// Shape the url to execute the query in transitland (see https://www.transit.land/)
+function shape_request(baseUrl, searchCoord, token) {
+  return baseUrl + '?' + 'lon=' + searchCoord.lon + '&lat=' + searchCoord.lat + '&radius=' + searchCoord.rad + '&apikey=' + token;
+}
+
+// §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+// Initial constants and variables
+// Santiago [Latitude, Longiitude]:
+const mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
+descripC0 = {title: '', description: 'Reference Point'}
+// Concepcion [Latitude, Longiitude]:
+// const mapC0 = [-36.816392332966494, -73.05296554039516].reverse();
+// descripC0 = {title: 'Centre Point', description: 'Concepcion, Chile'}
+
+// Search radius (in meters)
+const radius = 10000;
+// map style
+const map_style = '//styles/mapbox/streets-v11';
+
+// TODO: find a way to scramble these tokens
 mapboxgl.accessToken = 'pk.eyJ1Ijoiamx1bGxvYWEiLCJhIjoiY2wyemphOTEyMWZ0MTNjbXU1aWozbW80bSJ9.2bAdUzIX0h79uDF4RmlFfw';
+transitlan = {accessToken: 'QNewQJP5sD5lQjKgAIiSLPmaNO95wUKq'};
 
-// This is the map instance
+// URL where to send the query
+transitlandAPI = shape_request('https://transit.land/api/v2/rest/stops', {lon: mapC0[0], lat: mapC0[1], rad:radius}, transitlan.accessToken);
+
+// Initialise the map object, use as a coordinate "Concepcion, Chile" (as returned when searched in google maps) 
 let map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  // center: [-71.104081, 42.365554],
-  center: [-73.10987730333,-36.8339217247322],
-  zoom: 14,
+  style: 'mapbox:'+map_style,
+  center: mapC0,
+  zoom: 12,
 });
 
-// TODO: add a marker to the map at the first coordinates in the array busStops. The marker variable should be named "marker"
-let marker = new mapboxgl.Marker()
-  .setLngLat(busStops[0])
-  .addTo(map)
-// counter here represents the index of the current bus stop
-let counter = 0;
-function move() {
-  // TODO: move the marker on the map every 1000ms. Use the function marker.setLngLat() to update the marker coordinates
-  // Use counter to access bus stops in the array busStops
-  // Make sure you call move() after you increment the counter.
-  setTimeout(() => {
-    counter += 1;
-    marker.setLngLat(busStops[counter]); // replace this to comeback after reaching the last element %busStops.length]);
-    console.log(counter%busStops.length);
-    move()
-  }, 1000);
-}
+let initMrkr = addMarker(map, mapC0, descripC0);
+initMrkr.togglePopup(true);
+el = initMrkr.getElement();
+el.className = 'mainMarker';
 
-// Do not edit code past this point
-if (typeof module !== 'undefined') {
-  module.exports = { move };
-}
+// Initialise the timer variable which will be used to control the flow when updating the centre
+let timer = null;
+
+// And run the queries for ever....
+run(transitlandAPI);
+
+// counter here represents the index of the current bus stop
+// let counter = 0;
+// function move() {
+//   // TODO: move the marker on the map every 1000ms. Use the function marker.setLngLat() to update the marker coordinates
+//   // Use counter to access bus stops in the array busStops
+//   // Make sure you call move() after you increment the counter.
+//   setTimeout(() => {
+//     counter += 1;
+//     marker.setLngLat(busStops[counter]); // replace this to comeback after reaching the last element %busStops.length]);
+//     console.log(counter%busStops.length);
+//     move()
+//   }, 1000);
+// }
