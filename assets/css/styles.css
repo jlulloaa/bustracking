@@ -5,14 +5,8 @@
 body {
   margin: 5px;
   padding: 10px;
-  /* background-image: url('../img/156402.jpg'); */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
 }
 /* Trick to enable transparency in the background image only. See details in https://coder-coder.com/background-image-opacity/ */
-/* .main { 
-  position: relative; 
-} */
   .main::before {  
       content: "";
       background-image: url('../img/156402.jpg');
@@ -33,19 +27,11 @@ h1 {
 #map {
   position: relative;
   padding: 10px;
-  /* top: 0; */
-  /* bottom: 0; */
-  /* left: 25%; */
-  /* width: 50%; */
 }
 
 .map-overlay {
   position: relative;
   text-align: right;
-  /* left: 25%; */
-  /* width: 50%; */
-  /* left: 0; */
-  /* padding: 10px; */
 }
 
 footer{

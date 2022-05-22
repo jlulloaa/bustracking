@@ -144,8 +144,6 @@ let timer = null;
 // And run the queries for ever....
 run(transitlandAPI);
 
-// counter here represents the index of the current bus stop
-// let counter = 0;
 function move() {
   map.flyTo({center: mapC0});
 }
