@@ -6,6 +6,7 @@ body {
   margin: 5px;
   padding: 10px;
 }
+
 /* Trick to enable transparency in the background image only. See details in https://coder-coder.com/background-image-opacity/ */
   .main::before {  
       content: "";
