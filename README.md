@@ -47,6 +47,8 @@ By the end you should have something that behaves like this:
 # File Manifest
 
 # How to Run
+<a href="https://jlulloaa.github.io/bustracking"> Click to see the demo </a>
+
 This is information someone would use to get started running your project on their machine. 
 Here's how the game is played:
 
