@@ -32,7 +32,7 @@ Bus Stop Tracker is an application to identify bus stops near to a reference poi
 By using the free tier services of [mapbox](https://www.mapbox.com/) and the javascript libraries [MapBoxGLJS](https://docs.mapbox.com/mapbox-gl-js/api/), a vector map of an area centred around a point is displayed on the page. The software then accesses real-time traffic data through free APIs provided by [transitland](https://www.transit.land/). In this first version, the bus stops near to the reference point (within a radius of 10km) are displayed by coloured markers. The information is refreshed every 60secs, by fetching new data through the API. 
 
 # :world_map: How to Run
-The first time the page loads, it centres around [Talca](https://www.britannica.com/place/Talca) [(Chile)](https://en.wikipedia.org/wiki/Talca):chile:. I do not live there, I live 250km farther south, but it was the closest city where I could find data available to show :laugh:
+The first time the page loads, it centres around [Talca](https://www.britannica.com/place/Talca) [(Chile)](https://en.wikipedia.org/wiki/Talca):chile:. I do not live there, I live 250km farther south, but it was the closest city where I could find data available to show :sweat_smile:
 
 The map :world_map: can be zoomed in/out and panned by using the mouse, touchscreen or keyboard (:arrow_up_down:-:left_right_down: to move around, :heavy_plus_sign: to zoom in and :heavy_minus_sign: to zoom ou). 
 
@@ -42,8 +42,8 @@ To re-centre around the reference point, just hoover the mouse over the top-righ
 
 The reference point can easily be changed by clicking in another point in the map and by pressing **"Centre map"**, the information of the bus stops around the new reference point will be displayed. If there is no data available for the point, it is indicated in the tooltip.
 
-<h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=32px bacground=white> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a>
-<img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=32px></h2>
+<h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=64px bacground=white> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a>
+<img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=64px></h2>
 
 # Roadmap of future improvements
 This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. Although currently there are many services providing much more information, I'll be happy to see any improvement or changes perfomed by others to make this a more interesting tool.
