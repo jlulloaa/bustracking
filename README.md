@@ -27,7 +27,7 @@
 <img alt="Screenshot" src="howto/screenshot.png">
 
 # :compass: Description 
-Bus Stop Tracker is an application to identify bus stops near to a reference point. This is an exploratory excercise I am doing as part of the [full-stack web developer certificate](https://executive-ed.xpro.mit.edu/professional-certificate-coding) I am pursuing. 
+Bus Stop Tracker is an application to identify bus stops near to a reference point. This is an exploratory exercise I am doing as part of the [full-stack web developer certificate](https://executive-ed.xpro.mit.edu/professional-certificate-coding) I am pursuing. 
 
 The idea of this exercise is to build up on the concept of asynchronous programming and how to feed a webpage on external data to provide real-time experience to users. It also reinforces key learning concepts about front-end development, such as interacting with the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) and exploring the world of user interfaces with [CSS styles](https://www.w3schools.com/html/html_css.asp) and [bootstrap](https://getbootstrap.com/) templates.
 
