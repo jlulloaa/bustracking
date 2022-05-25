@@ -34,7 +34,7 @@ By using the free tier services of [mapbox](https://www.mapbox.com/) and the jav
 # :world_map: How to Run
 The first time the page loads, it centres around [Talca](https://www.britannica.com/place/Talca) [(Chile)](https://en.wikipedia.org/wiki/Talca):chile:. I do not live there, I live 250km farther south, but it was the closest city where I could find data available to show :sweat_smile:
 
-The map :world_map: can be zoomed in/out and panned by using the mouse, touchscreen or keyboard (:arrow_up_down: ↔️ to move around, :heavy_plus_sign: to zoom in and :heavy_minus_sign: to zoom ou). 
+The map :world_map: can be zoomed in/out and panned by using the mouse, touchscreen or keyboard (:arrow_up_down: ↔️ to move around, :heavy_plus_sign: to zoom in and :heavy_minus_sign: to zoom out). 
 
 To re-centre around the reference point, just hoover the mouse over the top-right corner and press the button **"Click here to recentre the map"**. Alternatively, a set of coordinates (latitude, longitude) can be typed directly into the text box (or copy and paste from e.g. [Google Maps](http://maps.google.com))
 
@@ -47,9 +47,7 @@ The reference point can easily be changed by clicking in another point in the ma
 <h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=32px> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a> <img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=32px></h2>
 
 # Roadmap of future improvements
-This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. Although currently there are many services providing much more information, I'll be happy to see any improvement or changes perfomed by others to make this a more interesting tool.
-
-Some of the improvements I have in my ToDo list are:
+This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. There are many services providing this type of GPS information, so this project can be a good learning place to understand how these other established services work. Some of the improvements I have in my ToDo list are:
 
 * Differentiate the right from the left click to enable more functionalities. Currently, cannot open two or more tooltips simultaneously, only one is displayed, because that click also translate the centre. Being able to differentiate the right from left click, will allow to e.g. use the right click to display the tooltip and the left, to recentre the pointer 
 
