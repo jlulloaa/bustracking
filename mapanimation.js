@@ -106,12 +106,15 @@ function shape_request(baseUrl, searchCoord, token) {
 
 // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 // Initial constants and variables
-// Santiago [Latitude, Longiitude]:
-var mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
-descripC0 = {title: 'Reference Point', description: 'Click over the map to change it'}
-// Concepcion [Latitude, Longiitude]:
+// Santiago [Latitude, Longitude]:
+// var mapC0 = [-33.43021450773247, -70.63269145612679].reverse(); 
+// descripC0 = {title: 'Reference Point', description: 'Click over the map to change it'}
+// Concepcion [Latitude, Longitude]:
 // var mapC0 = [-36.816392332966494, -73.05296554039516].reverse();
 // descripC0 = {title: 'Centre Point', description: 'Concepcion, Chile'}
+// Talca [Latitude, Longitude]:
+var mapC0 = [-35.4231656184843, -71.64862301094895].reverse();
+descripC0 = {title: 'Reference Point', description: 'Click over the map to change it'}
 
 // Search radius (in meters)
 const radius = 10000;

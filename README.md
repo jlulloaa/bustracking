@@ -26,47 +26,48 @@
 
 <img alt="Screenshot" src="howto/screenshot.png">
 
-# Description
-It's time for another exploratory exercise! Remember how you were able to manipulate the movements of PacMan across the browser window? In this exercise, you are going to create bustracking with the click of a button and each of them will move about the browser window at their own pace. Enjoy this challenge!
+# :compass: Description 
+Bus Stop Tracker is an application to identify bus stops near to a reference point. This is an exploratory excercise I am doing as part of the [full-stack web developer certificate](https://executive-ed.xpro.mit.edu/professional-certificate-coding) I'm pursuing. The idea of this exercise is to build up on the concept of asynchronous programming and how to feed a webpage on external data to provide real-time experience to users. It also reinforces key learning concepts about front-end development, such as interacting with the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) and exploring the world of user interfaces with [CSS styles](https://www.w3schools.com/html/html_css.asp) and [bootstrap](https://getbootstrap.com/) templates.
 
-In this exercise, you will create a web page that produces a PacMan on the click of a button by using the array methods you've learned previously and the new techniques you’ve learned for manipulating the DOM.
+By using the free tier services of [mapbox](https://www.mapbox.com/) and the javascript libraries [MapBoxGLJS](https://docs.mapbox.com/mapbox-gl-js/api/), a vector map of an area centred around a point is displayed on the page. The software then accesses real-time traffic data through free APIs provided by [transitland](https://www.transit.land/). In this first version, the bus stops near to the reference point (within a radius of 10km) are displayed by coloured markers. The information is refreshed every 60secs, by fetching new data through the API. 
 
-Here you can see what the bustracking exercise will look like after it's been implemented. You will complete this exercise in Canvas and then you can also create it on your local machine and share it on your personal GitHub repository by using the starter files from the Introduction and Instructions page.
+# :world_map: How to Run
+The first time the page loads, it centres around [Talca](https://www.britannica.com/place/Talca) [(Chile)](https://en.wikipedia.org/wiki/Talca):chile:. I do not live there, I live 250km farther south, but it was the closest city where I could find data available to show :laugh:
 
-The starter code includes comments to guide you through this activity.
+The map :world_map: can be zoomed in/out and panned by using the mouse, touchscreen or keyboard (:arrow_up_down:-:left_right_down: to move around, :heavy_plus_sign: to zoom in and :heavy_minus_sign: to zoom ou). 
 
-hint: remember that window.innerWidth provide the width of the web page, you can use this value to detect if a pacman is at the edge of the screen
+To re-centre around the reference point, just hoover the mouse over the top-right corner and press the button **"Click here to recentre the map"**. Alternatively, a set of coordinates (latitude, longitude) can be typed directly into the text box (or copy and paste from e.g. [Google Maps](http://maps.google.com))
 
-Making multiple bustracking
-In a previous assignment, you were able to create a pacman and make it move across the screen. In this activity, we're going to take that a step further.
+<img alt="Centre button" src="howto/centremap.png"> 
 
-Your task in this activity is to create a pacman on demand (button click) and move these bustracking across the page
+The reference point can easily be changed by clicking in another point in the map and by pressing **"Centre map"**, the information of the bus stops around the new reference point will be displayed. If there is no data available for the point, it is indicated in the tooltip.
 
-By the end you should have something that behaves like this:
-
-# File Manifest
-
-# How to Run
-<a href="https://jlulloaa.github.io/bustracking"> Click to see the demo </a>
-
-This is information someone would use to get started running your project on their machine. 
-Here's how the game is played:
-
-When you click the "Add PacMan" button, a new pacman should appear at a random position on the screen.
-When you click the "Start Game" button, the pacman or bustracking created should start moving at random velocity on the screen.
-When a given pacman hits the edge of the screen, it should change position to stay within the frame of the web page.
+<h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=32px bacground=white> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a>
+<img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=32px></h2>
 
 # Roadmap of future improvements
-This should be a few sentences describing what you plan to work on next in this repository. 
+This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. Although currently there are many services providing much more information, I'll be happy to see any improvement or changes perfomed by others to make this a more interesting tool.
+
+Some of the improvements I have in my ToDo list are:
+
+* Differentiate the right from the left click to enable more functionalities. Currently, cannot open two or more tooltips simultaneously, only one is displayed, because that click also translate the centre. Being able to differentiate the right from left click, will allow to e.g. use the right click to display the tooltip and the left, to recentre the pointer 
+
+* Display a counter with the number of bus stops found in the area. Also, will be nice to show the current radius and refresh time, and even been able to modify them
+
+* For planning a route, it'll be usefull to provide the closest stop by [measuring the distance](https://en.wikipedia.org/wiki/Great-circle_distance) between the reference point and the bus stops. This information can also be displayed for every stop in the tooltip.
+
+* Integrate other APIs to provide information from areas currently not served by [Transitland](https://www.transit.land/), and integrate information of underground trains
 
 # Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome, although I'm not sure will be reviewing them periodically. I'll also be happy to chat about any improvement or extension that could be donde to this app.
 
-Please make sure to update tests as appropriate.
 
 # Credits
-This software uses the following:
-(e.g. open source packages, links to other people's code snipet, images, etc.)
+This software uses the following third party tools:
+* The background image was taken from [WallpaperAccess](https://wallpaperaccess.com/4k-old-map)
+* [Bootstrap](https://getbootstrap.com/) based theme [Spacelab](https://bootswatch.com/spacelab/), from [bootswatch](https://bootswatch.com)
+* [Animated gif of the bus](https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif) in this README file
+* [Animated gif of the spinning earth](https://acegif.com/wp-content/gifs/globe-44.gif) in this README file
 
 # License information
 This project is licensed under the terms of <a href="https://github.com/jlulloaa/bustracking/blob/main/LICENSE" target="_blank"> MIT license </a>
