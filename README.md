@@ -51,7 +51,7 @@ The reference point can easily be changed by clicking in another point in the ma
 <h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=32px> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a> <img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=32px></h2>
 
 # Roadmap of future improvements
-This is a fun ex©ercise that allows practising with fetching external data and understanding the complexities of real-time UX. There are many services providing this type of GPS information, so this project can be a good learning place to understand how these other established services work. Some of the improvements I have in my ToDo list are:
+This is a fun exercise that allows practising with fetching external data and understanding the complexities of real-time UX. There are many services providing this type of GPS information, so this project can be a good learning place to understand how these other established services work. Some of the improvements I have in my ToDo list are:
 
 * Differentiate the right from the left click to enable more functionalities. Currently, cannot open two or more tooltips simultaneously, only one is displayed, because that click also translate the centre. Being able to differentiate the right from left click, will allow to e.g. use the right click to display the tooltip and the left, to recentre the pointer 
 
