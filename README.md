@@ -42,8 +42,11 @@ To re-centre around the reference point, just hoover the mouse over the top-righ
 
 The reference point can easily be changed by clicking in another point in the map and by pressing **"Centre map"**, the information of the bus stops around the new reference point will be displayed. If there is no data available for the point, it is indicated in the tooltip.
 
-<h2 align=center><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=64px bacground=white> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a>
-<img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=64px></h2>
+<p align=center> 
+
+|  <img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=64px bacground=white> 	|  <h2 align=center>  <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a> </h2> 	|   <img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=64px>	|
+|-	|-	|-
+</p>
 
 # Roadmap of future improvements
 This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. Although currently there are many services providing much more information, I'll be happy to see any improvement or changes perfomed by others to make this a more interesting tool.
