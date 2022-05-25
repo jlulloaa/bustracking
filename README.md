@@ -31,6 +31,8 @@ Bus Stop Tracker is an application to identify bus stops near to a reference poi
 
 By using the free tier services of [mapbox](https://www.mapbox.com/) and the javascript libraries [MapBoxGLJS](https://docs.mapbox.com/mapbox-gl-js/api/), a vector map of an area centred around a point is displayed on the page. The software then accesses real-time traffic data through free APIs provided by [transitland](https://www.transit.land/). In this first version, the bus stops near to the reference point (within a radius of 10km) are displayed by coloured markers. The information is refreshed every 60secs, by fetching new data through the API. 
 
+This is a responsive website, built on [bootstrap](https://getbootstrap.com/) via [bootswatch](https://bootswatch.com) [Spacelab](https://bootswatch.com/spacelab/) theme.
+
 # :world_map: How to Run
 The first time the page loads, it centres around [Talca](https://www.britannica.com/place/Talca) [(Chile)](https://en.wikipedia.org/wiki/Talca):chile:. I do not live there, I live 250km farther south, but it was the closest city where I could find data available to show :sweat_smile:
 
