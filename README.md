@@ -38,15 +38,13 @@ The map :world_map: can be zoomed in/out and panned by using the mouse, touchscr
 
 To re-centre around the reference point, just hoover the mouse over the top-right corner and press the button **"Click here to recentre the map"**. Alternatively, a set of coordinates (latitude, longitude) can be typed directly into the text box (or copy and paste from e.g. [Google Maps](http://maps.google.com))
 
-<img alt="Centre button" src="howto/centremap.png"> 
+<p align=center> <img alt="Re-Centre button" src="howto/recentremap.png"> </p>
 
 The reference point can easily be changed by clicking in another point in the map and by pressing **"Centre map"**, the information of the bus stops around the new reference point will be displayed. If there is no data available for the point, it is indicated in the tooltip.
 
-<p align=center> 
+<p align=center> <img alt="Centre button" src="howto/centremap.png"> </p>
 
-|  <img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=64px bacground=white> 	|  <h2 align=center>  <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a> </h2> 	|   <img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=64px>	|
-|-	|-	|-
-</p>
+<table> <td><h2 align=center valign=middle><img alt="Bustracking Right" src="https://cliply.co/wp-content/uploads/2019/08/371908200_SCHOOL_BUS_400px.gif" height=64px> </td> <td> <a href="https://jlulloaa.github.io/bustracking"> Explore the bus stop demo </a> <td> <img alt="Bustracking Left" src="https://acegif.com/wp-content/gifs/globe-44.gif" height=64px></h2></td></table>
 
 # Roadmap of future improvements
 This is a fun excercise that allows practising with fetching external data and understanding the complexities of real-time UX. Although currently there are many services providing much more information, I'll be happy to see any improvement or changes perfomed by others to make this a more interesting tool.
