@@ -58,7 +58,7 @@ This is a fun excercise that allows practising with fetching external data and u
 * Integrate other APIs to provide information from areas currently not served by [Transitland](https://www.transit.land/), and integrate information of underground trains
 
 # Contributing
-Pull requests are welcome, although I'm not sure will be reviewing them periodically. I'll also be happy to chat about any improvement or extension that could be donde to this app.
+Pull requests are welcome, and I'll be happy to chat about any improvement or extension that could be donde to this app.
 
 
 # Credits
